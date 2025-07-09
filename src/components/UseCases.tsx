@@ -40,15 +40,16 @@ const useCases = [
 // --- Main Component ---
 export default function InteractiveUseCaseSection() {
     const [activeId, setActiveId] = useState(useCases[0].id);
-    const contentRefs = useRef({});
-    const scrollContainerRef = useRef(null);
+    const contentRefs = useRef<Record<string, HTMLDivElement | null>>({});
+    const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
-    const handleMenuClick = (id) => {
+    const handleMenuClick = (id: string) => {
         contentRefs.current[id]?.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
         });
     };
+
 
     return (
         <section className="bg-background text-white py-24 px-4 font-sans">

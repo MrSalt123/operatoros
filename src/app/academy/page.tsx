@@ -56,15 +56,17 @@ export default function Home() {
                     Learn automation the right way.
                 </h1>
 
-                <div
-                    className="flex gap-4 justify-center mt-4 opacity-0"
-                    ref={buttonContainerRef}
+                <motion.div
+                    className="flex gap-4 justify-center mt-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.5 }}
                 >
                     <a href="https://whop.com/operatoros-ai-agent-academy/" target="_blank">
                         <SlidingButton label="Join Now" className="bg-bg-light text-[var(--text)]" />
                     </a>
                     <SlidingButton label="Learn More" className="bg-foreground text-background" />
-                </div>
+                </motion.div>
             </div>
 
             <motion.div

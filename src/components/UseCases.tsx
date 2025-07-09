@@ -46,12 +46,12 @@ const useCases: UseCase[] = [
 
 // --- Content Section Props ---
 type ContentSectionProps = {
-  id: string;
-  heading: string;
-  AnimationComponent: React.ComponentType;
-  setActiveId: (id: string) => void;
-  scrollContainerRef: React.RefObject<HTMLDivElement>;
-};
+    id: string;
+    heading: string;
+    AnimationComponent: React.ComponentType;
+    setActiveId: (id: string) => void;
+    scrollContainerRef: React.RefObject<HTMLDivElement | null>; // ✅ fix here
+  };
 
 // --- Content Section Component ---
 const ContentSection = React.forwardRef<HTMLDivElement, ContentSectionProps>(

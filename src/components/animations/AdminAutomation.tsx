@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // --- Configuration for Calendar Events ---
-const scheduleEvents = [
+const scheduleEvents: EventType[] = [
   { id: 1, day: 'Mon', start: 1, span: 3, title: 'Team Sync', color: 'bg-blue-200' },
   { id: 2, day: 'Tue', start: 4, span: 2, title: 'Onboarding', color: 'bg-green-200' },
   { id: 3, day: 'Wed', start: 2, span: 4, title: 'Projects', color: 'bg-purple-200' },
@@ -11,9 +11,17 @@ const scheduleEvents = [
   { id: 5, day: 'Fri', start: 1, span: 2, title: 'Planning', color: 'bg-pink-200' },
 ];
 
-// --- Reusable Event Block Component ---
-const CalendarEvent = ({ event }) => {
-  // The grid-row starts at `start + 1` because row 1 is now the day headers.
+
+type EventType = {
+  id: number;
+  day: 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri';
+  start: number;
+  span: number;
+  title: string;
+  color: string;
+};
+
+const CalendarEvent = ({ event }: { event: EventType }) => {
   const gridRow = `${event.start + 1} / span ${event.span}`;
   const gridColumn = {
     Mon: '1 / 2',
@@ -38,9 +46,10 @@ const CalendarEvent = ({ event }) => {
   );
 };
 
+
 // --- Main Animation Component ---
 export default function AdminAutomationAnimation() {
-  const [visibleEvents, setVisibleEvents] = useState([]);
+  const [visibleEvents, setVisibleEvents] = useState<EventType[]>([]);
 
   useEffect(() => {
     const sequence = async () => {

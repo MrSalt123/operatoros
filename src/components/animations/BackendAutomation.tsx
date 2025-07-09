@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // --- Reusable Node Component ---
-const WorkflowNode = ({ text, icon: Icon }) => (
+const WorkflowNode = ({ text, icon: Icon }: { text: string; icon: React.ComponentType }) => (
     <motion.div
         layout
         initial={{ opacity: 0, y: 50 }}
@@ -18,6 +18,7 @@ const WorkflowNode = ({ text, icon: Icon }) => (
         <p className="text-slate-800 text-sm font-medium">{text}</p>
     </motion.div>
 );
+
 
 // --- SVG Icon Components ---
 const UserIcon = () => (
@@ -41,16 +42,22 @@ const CrmIcon = () => (
     </svg>
 );
 
-const allNodes = [
+type NodeType = {
+    id: number;
+    text: string;
+    icon: React.ComponentType;
+  };
+
+  const allNodes: NodeType[] = [
     { id: 1, text: "New User Signup", icon: UserIcon },
     { id: 2, text: "Enrich Data", icon: EnrichIcon },
     { id: 3, text: "Send Welcome Email", icon: EmailIcon },
     { id: 4, text: "Add to CRM", icon: CrmIcon },
-];
+  ];
 
 // --- Main Animation Component ---
 export default function BackendAutomationAnimation() {
-    const [visibleNodes, setVisibleNodes] = useState([]);
+    const [visibleNodes, setVisibleNodes] = useState<NodeType[]>([]);
     const [isComplete, setIsComplete] = useState(false);
     const [cycle, setCycle] = useState(0); // State to manage animation loops
 

@@ -133,3 +133,5 @@ const ContentSection = React.forwardRef(({ id, heading, AnimationComponent, setA
         </div>
     );
 });
+
+ContentSection.displayName = 'ContentSection';

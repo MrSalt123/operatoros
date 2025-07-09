@@ -34,11 +34,6 @@ export default function Home() {
 
             setTimeout(() => {
                 if (!buttonContainerRef.current) return;
-                animate(
-                    buttonContainerRef.current,
-                    { opacity: [0, 1], y: [20, 0] },
-                    { duration: 0.6, easing: 'ease-in-out' }
-                );
             }, 500);
         });
     }, []);

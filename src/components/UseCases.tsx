@@ -55,34 +55,48 @@ type ContentSectionProps = {
 
 // --- Content Section Component ---
 const ContentSection = React.forwardRef<HTMLDivElement, ContentSectionProps>(
-  ({ id, heading, AnimationComponent, setActiveId, scrollContainerRef }, ref) => {
-    const isInView = useInView(ref, {
-      root: scrollContainerRef,
-      margin: '-50% 0px -50% 0px',
-    });
-
-    useEffect(() => {
-      if (isInView) {
-        setActiveId(id);
-      }
-    }, [isInView, id, setActiveId]);
-
-    return (
-      <div ref={ref} className="grid md:grid-cols-2 gap-8 items-center">
-        <div className="p-4 h-full">
-          <div className="flex gap-4 mt-8">
-            <h4 className="text-2xl font-bold text-gray-100">{heading}</h4>
+    ({ id, heading, AnimationComponent, setActiveId, scrollContainerRef }, forwardedRef) => {
+      const localRef = useRef<HTMLDivElement>(null);
+  
+      // ✅ useInView works with RefObject
+      const isInView = useInView(localRef, {
+        root: scrollContainerRef,
+        margin: '-50% 0px -50% 0px',
+      });
+  
+      // ✅ Forward the ref manually
+      useEffect(() => {
+        if (!forwardedRef) return;
+        if (typeof forwardedRef === 'function') {
+          forwardedRef(localRef.current);
+        } else {
+          (forwardedRef as React.MutableRefObject<HTMLDivElement | null>).current = localRef.current;
+        }
+      }, [forwardedRef]);
+  
+      useEffect(() => {
+        if (isInView) {
+          setActiveId(id);
+        }
+      }, [isInView, id, setActiveId]);
+  
+      return (
+        <div ref={localRef} className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="p-4 h-full">
+            <div className="flex gap-4 mt-8">
+              <h4 className="text-2xl font-bold text-gray-100">{heading}</h4>
+            </div>
+          </div>
+          <div className="w-full h-120 flex items-center justify-center">
+            <AnimationComponent />
           </div>
         </div>
-        <div className="w-full h-120 flex items-center justify-center">
-          <AnimationComponent />
-        </div>
-      </div>
-    );
-  }
-);
-
-ContentSection.displayName = 'ContentSection';
+      );
+    }
+  );
+  
+  ContentSection.displayName = 'ContentSection';
+  
 
 // --- Main Component ---
 export default function InteractiveUseCaseSection() {

@@ -94,7 +94,9 @@ export default function InteractiveUseCaseSection() {
                                     AnimationComponent={useCase.AnimationComponent}
                                     setActiveId={setActiveId}
                                     scrollContainerRef={scrollContainerRef}
-                                    ref={(el) => (contentRefs.current[useCase.id] = el)}
+                                    ref={(el: HTMLDivElement | null) => {
+                                        contentRefs.current[useCase.id] = el;
+                                    }}
                                 />
                             ))}
                         </div>

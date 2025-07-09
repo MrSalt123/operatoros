@@ -23,7 +23,7 @@ export default function LogoTicker() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-xl text-center flex flex-col mb-16 gap-2">
           <h4 className="text-foreground">
-            Augmenting the world's most ambitious teams.
+            Augmenting the world&apos;s most ambitious teams.
           </h4>
           <h4 className="text-muted">
             From agile startups to global enterprises.

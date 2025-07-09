@@ -98,14 +98,13 @@ export default function ModularAISolutions() {
             <h4 className="">Your AI Co-Pilot</h4>
             <Spacer size='xs' />
             <span className="text-lg text-[var(--text-muted)]">
-              Think of us as your AI co-pilot, adapting your AI's capabilities as you grow.
+              Think of us as your AI co-pilot, adapting your AI&apos;s capabilities as you grow.
             </span>
           </div>
         </div>
         <div className="col-start-5 col-span-8">
-            <EvolvingNeuralWeb />
-          </div>
-
+          <EvolvingNeuralWeb />
+        </div>
       </div>
     </section>
   );

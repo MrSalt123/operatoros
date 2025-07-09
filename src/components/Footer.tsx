@@ -26,7 +26,7 @@ export default function Footer() {
                     {/* Get In Touch */}
                     <div className="flex flex-col gap-2">
                         <h5 className="text-white text-sm font-semibold mb-2 uppercase tracking-wide">Get in Touch</h5>
-                        <p className="text-white/40">Questions? Let's chat.</p>
+                        <p className="text-white/40">Questions? Let&apos;s chat.</p>
                         <Link href="mailto:operations@operator.os" className="hover:text-white transition">
                             operations@operator.os
                         </Link>

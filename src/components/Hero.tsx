@@ -22,7 +22,6 @@ export default function Hero() {
       const { words: subheadingWords } = splitText(subheadingRef.current);
 
       const allWords = [...headingWords, ...subheadingWords];
-      const totalWords = allWords.length;
 
       animate(
         [...headingWords, ...subheadingWords],

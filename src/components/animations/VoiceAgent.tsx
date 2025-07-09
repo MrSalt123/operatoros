@@ -65,7 +65,7 @@ export default function VoiceAgentAnimation() {
 
                 {/* Transcribed Text Placeholder */}
                 <span className="mt-4 text-center text-gray-300 text-xs">
-                    "Yes, I can help with that. Pulling up your account details now..."
+                &quot;Yes, I can help with that. Pulling up your account details now...&quot;
                 </span>
             </div>
             

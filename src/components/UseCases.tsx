@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useInView } from 'framer-motion';
 import VoiceAgentAnimation from './animations/VoiceAgent';
 import BackendAnimation from './animations/BackendAutomation';
 import AdminAutomationAnimation from './animations/AdminAutomation';

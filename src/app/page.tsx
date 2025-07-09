@@ -1,0 +1,19 @@
+import Hero from "@/components/Hero";
+import SocialProof from "@/components/SocialProof";
+import Solutions from "@/components/Solutions";
+import FAQ from "@/components/FAQ";
+import CoreFeatures from "@/components/CoreFeatures";
+import InteractiveUseCaseSection from "@/components/UseCases";
+import CTA from "@/components/CTA";
+export default function Home() {
+  return (
+    <section>
+        <Hero />
+        <SocialProof />
+        <Solutions />
+        <CoreFeatures />
+        <InteractiveUseCaseSection />
+        <CTA />
+    </section>
+  );
+}

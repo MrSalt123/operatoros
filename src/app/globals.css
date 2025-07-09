@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+/* Fonts */
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Variable.ttf") format("truetype");
+  font-display: swap;;
+}
+
+:root {
+  --background: hsl(0,0%,0%);
+  --foreground: hsl(0,0%,95%);
+  --card-bg: rgb(40,40,40);
+  --bg-light: hsl(0,0%, 5%);
+  --bg-extralight: hsl(0, 0%, 10%);
+  --accent: #06B6D4;
+  --glow: #F038FF;
+
+  --font-primary: "Satoshi", serif;
+  --text-muted: hsl(0, 0%, 75%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-accent : var(--accent);
+  
+  --color-card-bg: var(--card-bg);
+  --color-bg-light: var(--bg-light);
+  --color-bg-extralight: var(--bg-extralight);
+
+  --color-glow: var(--glow);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-primary);
+}
+
+/* Typography Style */
+
+.display-2xl {
+  /*  font-family: var(--font-primary);*/
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -.03em;
+}
+
+.display-xl {
+  /*  font-family: var(--font-primary);*/
+  font-size: clamp(3.2rem, 7vw, 5.2rem);
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+h1 {
+  /*  font-family: var(--font-primary);*/
+  font-size: clamp(3rem, 6vw, 4rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+h2 {
+  /*  font-family: var(--font-primary);*/
+  font-size: clamp(2.5rem, 4vw, 3.2rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+}
+
+h3 {
+  /*  font-family: var(--font-primary);*/
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: -.02em;
+}
+
+h5 {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+h6 {
+  font-size: 1.15rem;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.large {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.label {
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.label-small {
+  font-size: .75rem;
+  line-height: 1.2;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: hsl(0, 0, 50%);
+}
+
+/* Grid Layout */
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* Mobile: 4 columns */
+  gap: 8px;
+  /* 8px gap between columns */
+  padding-left: 16px;
+  /* 16px left/right padding */
+  padding-right: 16px;
+}
+
+@media (min-width: 768px) {
+  .layout {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    /* Tablet: 8 columns */
+    gap: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    /* Desktop: 12 columns */
+  }
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(255,255,255, .5) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+
+.mask-fade {
+  -webkit-mask-image: radial-gradient(circle at center, white 40%, transparent 100%);
+  mask-image: radial-gradient(circle at center, white 40%, transparent 100%);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+  pointer-events: none;
+}
+
+.bg-dot-pattern-light {
+  background-image: radial-gradient(rgba(255,255,255, .25) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-dot-pattern-extralight {
+  background-image: radial-gradient(rgba(255,255,255, .15) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.border-dashed-loose {
+  background-image: repeating-linear-gradient(to bottom, 
+    rgba(255, 255, 255, 0.1) 0,          /* The dash color */
+    rgba(255, 255, 255, 0.1) 8px,         /* The length of the dash */
+    transparent 4px,                       /* The start of the gap */
+    transparent 20px                       /* The end of the gap (gap size is 20-4=16px) */
+  );
+  background-size: 1px 100%; /* Line thickness and full height */
+  background-position: left;
+  /* The incorrect "background-repeat: no-repeat;" line has been removed. */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  /* IE/Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}

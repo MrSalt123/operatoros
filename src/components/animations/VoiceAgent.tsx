@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
+import { easeInOut } from 'framer-motion';
 
 // --- Main Voice Agent Animation Component ---
 export default function VoiceAgentAnimation() {
@@ -20,7 +21,7 @@ export default function VoiceAgentAnimation() {
       scaleY: [1, 1.5, 1, 0.8, 1], // Creates a smooth, pulsing "breathing" effect
       transition: {
         duration: 1.5,
-        ease: 'easeInOut',
+        ease: easeInOut,
         repeat: Infinity,
       },
     },

@@ -3,6 +3,7 @@
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import React from 'react';
+import { easeOut } from 'framer-motion';
 
 // --- Configuration ---
 const BRAND_PURPLE = '#6d28d9';
@@ -15,13 +16,13 @@ const MODULES = [
     { name: 'Meeting Scheduler', icon: 'Calendar' },
 ] as const;
 
+
 type ModuleType = (typeof MODULES)[number];
 
-
-  type ModuleCardProps = {
+type ModuleCardProps = {
     module: ModuleType;
     isActivated: boolean;
-  };
+};
 
 // --- SVG Icons ---
 // A collection of icons for the modules.
@@ -39,16 +40,17 @@ type IconName = keyof typeof ICONS;
 
 type IconProps = {
     name: IconName;
-  } & React.SVGProps<SVGSVGElement>;
-  
-  const Icon = ({ name, ...props }: IconProps) => {
+} & React.SVGProps<SVGSVGElement>;
+
+const Icon = ({ name, ...props }: IconProps) => {
     const IconComponent = ICONS[name];
     return IconComponent ? <IconComponent {...props} /> : null;
-  };
+};
 
 
 // --- Module Card Component ---
-const ModuleCard = ({ module, isActivated }: ModuleCardProps) => {    const cardVariants = {
+const ModuleCard = ({ module, isActivated }: ModuleCardProps) => {
+    const cardVariants = {
         inactive: {
             backgroundColor: 'rgba(255, 255, 255, 0.05)',
             borderColor: 'rgba(255, 255, 255, 0.1)',
@@ -58,7 +60,7 @@ const ModuleCard = ({ module, isActivated }: ModuleCardProps) => {    const card
             backgroundColor: 'rgba(109, 40, 217, 0.2)',
             borderColor: 'rgba(109, 40, 217, 0.8)',
             boxShadow: `0px 0px 20px 0px ${BRAND_PURPLE}`,
-            transition: { duration: 0.5, ease: 'easeOut' },
+            transition: { duration: 0.5, ease: easeOut },
         },
     };
 

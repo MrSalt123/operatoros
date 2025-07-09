@@ -2,8 +2,20 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// A reusable component for a single chat bubble
-const ChatBubble = ({ message, isUser }) => {
+// --- Type Definitions ---
+interface Message {
+  id: number;
+  sender: 'user' | 'ai';
+  text: string;
+}
+
+interface ChatBubbleProps {
+  message: Message;
+  isUser: boolean;
+}
+
+// --- Reusable Component for a single chat bubble ---
+const ChatBubble: React.FC<ChatBubbleProps> = ({ message, isUser }) => {
   const characters = Array.from(message.text);
   return (
     <motion.div
@@ -26,7 +38,7 @@ const ChatBubble = ({ message, isUser }) => {
             : 'bg-slate-100 text-slate-700 rounded-bl-none'
         }`}
       >
-        <motion.span
+        <motion.p // Changed to <p> for semantic correctness
           className="text-xs leading-relaxed"
           variants={{
             hidden: { opacity: 0 },
@@ -40,7 +52,7 @@ const ChatBubble = ({ message, isUser }) => {
               {char}
             </motion.span>
           ))}
-        </motion.span>
+        </motion.p>
       </div>
     </motion.div>
   );
@@ -48,8 +60,8 @@ const ChatBubble = ({ message, isUser }) => {
 
 // --- Main Animation Component ---
 export default function CustomerSupportAnimation() {
-  const [messages, setMessages] = useState([]);
-  const conversation = [
+  const [messages, setMessages] = useState<Message[]>([]);
+  const conversation: Message[] = [
     { id: 1, sender: 'user', text: "Hi, I can't find my recent order. Can you help?" },
     { id: 2, sender: 'ai', text: 'Of course! I found an order for a "Pro-Tier Widget" placed yesterday. Is that the one?' },
   ];
@@ -73,7 +85,7 @@ export default function CustomerSupportAnimation() {
     sequence(); // Start immediately
 
     return () => clearInterval(interval);
-  }, []);
+  }, []); // The conversation array is stable, so no need to include it in dependencies.
 
   return (
     <div className="w-3/4 h-3/4 p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col font-sans">

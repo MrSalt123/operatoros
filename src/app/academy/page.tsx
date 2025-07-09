@@ -3,7 +3,8 @@
 import { useEffect, useRef } from 'react';
 import { animate, stagger } from 'motion';
 import { splitText } from 'motion-plus';
-import {motion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import Image from "next/image";
 import SlidingButton from '@/components/buttons/SlidingButton';
 import WhatsInside from '@/components/WhatsInside';
 
@@ -73,8 +74,13 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.8, ease: 'easeOut' }} // Delays until after buttons
             >
-                <img src="/img/video.jpeg" alt="whop video" className='z-10 rounded-sm' />
-            </motion.div>
+                <Image
+                    src="/img/video.jpeg"
+                    alt="whop video"
+                    width={800} // You can adjust this based on actual image size or layout need
+                    height={450}
+                    className="z-10 rounded-sm"
+                />            </motion.div>
 
             <WhatsInside />
         </section>

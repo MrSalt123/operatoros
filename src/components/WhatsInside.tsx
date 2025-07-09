@@ -47,7 +47,7 @@ export default function WhatsInside() {
                             <div className="flex flex-col p-4 gap-4">
                                 <h4 className="font-semibold">Your Personal Project Accelerator</h4>
                                 <p className="text-muted">
-                                    Go deeper with dedicated 1:1 coaching. We'll help you build a custom project roadmap, review your code, and provide the personalized guidance needed to overcome your specific challenges and launch faster.                            </p>
+                                    Go deeper with dedicated 1:1 coaching. We&apos;ll help you build a custom project roadmap, review your code, and provide the personalized guidance needed to overcome your specific challenges and launch faster.                            </p>
                             </div>
                         </div>
 

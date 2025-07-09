@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { ChevronDown, Bot } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 // --- Data for the FAQ section ---
 const faqData = [

@@ -36,7 +36,7 @@ export default function AutomateTasks() {
 
       <ul className="flex flex-col gap-2 relative">
         <AnimatePresence initial={false}>
-          {visibleTasks.map((task, index) => (
+          {visibleTasks.map((task) => (
             <motion.li
               key={task}
               layout

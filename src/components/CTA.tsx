@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import SlidingButton from './buttons/SlidingButton';
-import Spacer from './Spacer';
 
 export default function CallToAction() {
   return (

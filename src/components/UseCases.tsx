@@ -154,7 +154,7 @@ export default function InteractiveUseCaseSection() {
             className="relative h-[35rem] md:h-[30rem] w-full md:w-[80%] overflow-y-auto bg-white/5 border border-white/10 scrollbar-hidden"
           >
             <div className="space-y-18 bg-dot-pattern-extralight">
-              {useCases.map((useCase, index) => (
+              {useCases.map((useCase) => (
                 <ContentSection
                   key={useCase.id}
                   id={useCase.id}

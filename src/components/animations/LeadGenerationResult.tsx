@@ -17,7 +17,7 @@ export default function LeadGenerationResult() {
         <div className="absolute top-[-40px] left-[-40px] w-36 h-36 bg-white/10 blur-2xl rounded-full pointer-events-none" />
   
         {/* Input bar */}
-        <div className="bg-white/5 border border-white/10 px-4 py-2 rounded-md mb-4 text-white text-sm w-full">
+        <div className="bg-bg-light border border-white/10 px-4 py-2 rounded-md mb-4 text-white text-sm w-full">
           “Give me 100 leads”
         </div>
   
@@ -29,7 +29,7 @@ export default function LeadGenerationResult() {
             { name: "Emily Zhang", email: "emily.z@solutions.ai" },
             { name: "Carlos Rivera", email: "carlos@scaleup.app" },
           ].map((lead, i) => (
-            <div key={i} className="flex justify-between items-center bg-white/5 px-3 py-2 rounded-md text-white/90">
+            <div key={i} className="flex justify-between items-center bg-bg-light px-3 py-2 rounded-md text-white/90">
               <span>{lead.name}</span>
               <span className="text-white/60 text-xs">{lead.email}</span>
             </div>

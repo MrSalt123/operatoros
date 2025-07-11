@@ -14,11 +14,11 @@ export default function ModularAISolutions() {
 
       {/* Top full-width gradient section */}
       <div className="w-full bg-gradient-to-b from-bg-extralight to-background">
-        <div className="max-w-6xl mx-auto py-32 px-6">
-          <div className="text-left p-8">
+        <div className="max-w-6xl mx-auto py-32 px-4 md:px-8">
+          <div className="text-left">
             <h2>The OperatorOS Blueprint</h2>
             <Spacer size="xl" />
-            <h6 className="text-foreground w-1/2">
+            <h6 className="text-foreground md:w-1/2">
               <strong>Deploy production-ready AI agents with confidence.</strong>
               <span className="text-muted">
                 { } Build upon our scalable infrastructure, enterprise security, and dedicated support.
@@ -32,7 +32,7 @@ export default function ModularAISolutions() {
       {/* Grid section contained to max-w-6xl */}
       <div className="layout max-w-6xl mx-auto">
 
-        <div className="col-span-6 flex flex-col p-8 border-r border-b border-white/10">
+        <div className="col-span-4 md:col-span-6 p-4 md:p-8 flex flex-col border-r border-b border-white/10">
           <h4 className="">Diagnose Your Workflow</h4>
           <Spacer size='xs' />
           <span className="text-lg text-[var(--text-muted)] w-3/4">
@@ -44,7 +44,7 @@ export default function ModularAISolutions() {
           </div>
         </div>
 
-        <div className="col-start-7 col-span-6 flex flex-col p-8 border-b border-white/10">
+        <div className="col-span-4 md:col-start-7 md:col-span-6 p-4 md:p-8 flex flex-col border-b border-white/10">
           <h4 className="">Find the Friction</h4>
           <Spacer size='xs' />
           <span className="text-lg text-[var(--text-muted)] w-3/4">
@@ -56,7 +56,7 @@ export default function ModularAISolutions() {
           </div>
         </div>
 
-        <div className="col-span-4 flex flex-row p-8 border-b border-white/10">
+        <div className="col-span-4 flex flex-row p-4 md:p-8 border-b border-white/10">
           <div className="flex flex-col">
             <h4 className="">Demo Your Future</h4>
             <Spacer size='xs' />
@@ -67,11 +67,11 @@ export default function ModularAISolutions() {
 
         </div>
 
-        <div className="col-start-5 col-span-8 px-8">
+        <div className="col-span-4 md:col-start-5 md:col-span-8 px-8">
           <LeadGenerationResult />
         </div>
 
-        <div className="col-span-6 flex flex-col p-8 border-b border-r border-white/10">
+        <div className="col-span-4 md:col-span-6 flex flex-col p-4 md:p-8 border-b border-r border-white/10">
           <h4 className="">Create Your Knowledge Core</h4>
           <Spacer size='xs' />
           <span className="text-lg text-[var(--text-muted)] w-3/4">
@@ -83,7 +83,7 @@ export default function ModularAISolutions() {
           </div>
         </div>
 
-        <div className="col-start-7 col-span-6 flex flex-col p-8 border-b border-white/10">
+        <div className="col-span-4 md:col-start-7 md:col-span-6 flex flex-col p-4 md:p-8 border-b border-white/10">
           <h4 className="">Deploy Your AI Workforce</h4>
           <Spacer size='xs' />
           <span className="text-lg text-[var(--text-muted)] w-3/4">
@@ -95,7 +95,7 @@ export default function ModularAISolutions() {
           </div>
         </div>
 
-        <div className="col-span-4 flex flex-row p-8 gap-2 pb-32">
+        <div className="col-span-4 flex flex-row p-4 md:p-8 gap-2">
           <div className="flex flex-col">
             <h4 className="">Your AI Co-Pilot</h4>
             <Spacer size='xs' />
@@ -104,7 +104,7 @@ export default function ModularAISolutions() {
             </span>
           </div>
         </div>
-        <div className="col-start-5 col-span-8">
+        <div className="col-span-4 md:col-start-5 md:col-span-8">
           <EvolvingNeuralWeb />
         </div>
       </div>

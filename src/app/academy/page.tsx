@@ -65,7 +65,7 @@ export default function Home() {
             </div>
 
             <motion.div
-                className='max-w-5xl mt-16 z-10 border border-b-0 p-2 rounded-md border-white/20'
+                className='max-w-6xl mt-16 z-10 border border-b-0 p-2 rounded-md border-white/20'
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -74,10 +74,11 @@ export default function Home() {
                 <Image
                     src="/img/video.jpeg"
                     alt="whop video"
-                    width={800} // You can adjust this based on actual image size or layout need
+                    width={900} // You can adjust this based on actual image size or layout need
                     height={450}
                     className="z-10 rounded-sm"
-                />            </motion.div>
+                />
+            </motion.div>
 
             <WhatsInside />
         </section>

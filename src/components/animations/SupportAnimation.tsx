@@ -88,7 +88,7 @@ export default function CustomerSupportAnimation() {
   }, []); // The conversation array is stable, so no need to include it in dependencies.
 
   return (
-    <div className="w-3/4 h-3/4 p-4 bg-bg-extralight rounded-xl border border-white/10 flex flex-col font-sans">
+    <div className="w-full h-full md:w-3/4 md:h-3/4 p-4 bg-bg-extralight rounded-xl border border-white/10 flex flex-col font-sans">
       {/* Header */}
       <div className="flex-shrink-0 mb-3 px-2 flex items-center gap-2">
         <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>

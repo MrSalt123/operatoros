@@ -34,7 +34,7 @@ export default function VoiceAgentAnimation() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="w-3/4 h-3/4 p-4 bg-bg-extralight rounded-xl border border-white/10 flex flex-col font-sans"
+            className="w-full md:w-3/4 h-3/4 p-4 bg-bg-extralight rounded-xl border border-white/10 flex flex-col font-sans"
         >
             {/* Header of the UI */}
             <div className="flex-shrink-0 mb-4 p-2 flex justify-between items-center">

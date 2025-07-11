@@ -75,7 +75,7 @@ export default function AdminAutomationAnimation() {
   }, []);
 
   return (
-    <div className="w-3/4 h-3/4 p-4 bg-bg-extralight rounded-xl border border-white/10 flex flex-col font-sans">
+    <div className="w-full md:w-3/4 h-3/4 p-4 bg-bg-extralight rounded-xl border border-white/10 flex flex-col font-sans">
       {/* Header */}
       <div className="flex-shrink-0 mb-3 px-2 flex justify-between items-center">
         <div className='flex flex-col'>

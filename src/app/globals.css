@@ -188,8 +188,8 @@ p {
 
 .border-dashed-loose {
   background-image: repeating-linear-gradient(to bottom, 
-    rgba(255, 255, 255, 0.1) 0,          /* The dash color */
-    rgba(255, 255, 255, 0.1) 8px,         /* The length of the dash */
+    rgba(255, 255, 255, 0.15) 0,          /* The dash color */
+    rgba(255, 255, 255, 0.15) 8px,         /* The length of the dash */
     transparent 4px,                       /* The start of the gap */
     transparent 20px                       /* The end of the gap (gap size is 20-4=16px) */
   );

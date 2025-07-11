@@ -9,6 +9,7 @@ export default function BottleneckTasks() {
           'linear-gradient(to bottom, white 60%, transparent), linear-gradient(to right, white 80%, transparent)',
         maskImage:
           'linear-gradient(to bottom, white 60%, transparent), linear-gradient(to right, white 80%, transparent)',
+
         WebkitMaskComposite: 'destination-in',
         maskComposite: 'intersect',
       }}

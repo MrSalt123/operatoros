@@ -94,9 +94,9 @@ export default function CoreFeatures() {
     <section className="bg-background text-white py-24">
       <div className="w-full bg-gradient-to-b from-bg-extralight to-background">
 
-        <div className="max-w-6xl mx-auto py-32">
+        <div className="max-w-6xl mx-auto py-24 md:py-32 px-4 md:px-8">
           {/* Section Header */}
-          <div className="text-left w-2/3 mb-16">
+          <div className="text-left md:w-2/3 mb-16">
             <h2>
               Secure. Scalable. Intelligent.
             </h2>

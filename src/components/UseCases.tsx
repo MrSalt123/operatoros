@@ -50,21 +50,19 @@ type ContentSectionProps = {
     heading: string;
     AnimationComponent: React.ComponentType;
     setActiveId: (id: string) => void;
-    scrollContainerRef: React.RefObject<HTMLDivElement | null>; // ✅ fix here
+    scrollContainerRef: React.RefObject<HTMLDivElement | null>;
   };
 
 // --- Content Section Component ---
 const ContentSection = React.forwardRef<HTMLDivElement, ContentSectionProps>(
     ({ id, heading, AnimationComponent, setActiveId, scrollContainerRef }, forwardedRef) => {
       const localRef = useRef<HTMLDivElement>(null);
-  
-      // ✅ useInView works with RefObject
+
       const isInView = useInView(localRef, {
         root: scrollContainerRef,
         margin: '-50% 0px -50% 0px',
       });
-  
-      // ✅ Forward the ref manually
+
       useEffect(() => {
         if (!forwardedRef) return;
         if (typeof forwardedRef === 'function') {
@@ -73,30 +71,32 @@ const ContentSection = React.forwardRef<HTMLDivElement, ContentSectionProps>(
           (forwardedRef as React.MutableRefObject<HTMLDivElement | null>).current = localRef.current;
         }
       }, [forwardedRef]);
-  
+
       useEffect(() => {
         if (isInView) {
           setActiveId(id);
         }
       }, [isInView, id, setActiveId]);
-  
+
       return (
-        <div ref={localRef} className="grid md:grid-cols-2 gap-8 items-center">
+        // This grid layout naturally stacks on mobile and goes to two columns on desktop
+        <div ref={localRef} className="grid md:grid-cols-2 gap-4 md:gap-8 items-center h-full md:px-0">
           <div className="p-4 h-full">
-            <div className="flex gap-4 mt-8">
-              <h4 className="text-2xl font-bold text-gray-100">{heading}</h4>
+            <div className="flex gap-4 mt-4 md:mt-8">
+              <h4 className="text-xl md:text-2xl font-bold text-gray-100">{heading}</h4>
             </div>
           </div>
-          <div className="w-full h-120 flex items-center justify-center">
+          {/* On mobile, this container will take the full width of the grid column */}
+          <div className="w-full h-100 md:h-120 p-4 flex items-center justify-center">
             <AnimationComponent />
           </div>
         </div>
       );
     }
   );
-  
+
   ContentSection.displayName = 'ContentSection';
-  
+
 
 // --- Main Component ---
 export default function InteractiveUseCaseSection() {
@@ -115,45 +115,46 @@ export default function InteractiveUseCaseSection() {
       });
     }
   };
-  
+
 
   return (
     <section className="bg-background text-white py-24 px-4 font-sans">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 md:mb-16 text-center">
           See what OperatorOS can do.
         </h2>
 
+        {/* The container is a column on mobile and a row on desktop */}
         <div className="flex flex-col md:flex-row">
           {/* Left-hand Navigation Menu */}
-          <aside className="w-[20%]">
-            <div className="top-24">
-              <ul>
-                {useCases.map((useCase) => (
-                  <li key={useCase.id}>
-                    <button
-                      onClick={() => handleMenuClick(useCase.id)}
-                      className={`w-full text-left p-3 transition-colors duration-300 text-sm ${
-                        activeId === useCase.id
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-400 hover:bg-white/5 hover:text-white'
-                      }`}
-                    >
-                      {useCase.title}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <aside className="w-full md:w-[20%] mb-4 md:mb-0">
+            {/* On mobile, this becomes a horizontally scrolling container */}
+            <ul className="flex flex-row md:flex-col overflow-x-auto scrollbar-hidden">
+              {useCases.map((useCase) => (
+                <li key={useCase.id} className="flex-shrink-0">
+                  <button
+                    onClick={() => handleMenuClick(useCase.id)}
+                    className={`w-full text-left p-3 transition-colors duration-300 text-sm whitespace-nowrap ${
+                      activeId === useCase.id
+                        ? 'bg-white/10 text-white'
+                        : 'text-gray-400 hover:bg-white/5 hover:text-white'
+                    }`}
+                  >
+                    {useCase.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
           </aside>
 
           {/* Right-hand Content Area */}
           <main
             ref={scrollContainerRef}
-            className="relative h-[30rem] w-[80%] overflow-y-auto bg-white/5 border border-white/10 scrollbar-hidden"
+            // Use full width on mobile, and give it more height to feel less cramped
+            className="relative h-[35rem] md:h-[30rem] w-full md:w-[80%] overflow-y-auto bg-white/5 border border-white/10 scrollbar-hidden"
           >
             <div className="space-y-18 bg-dot-pattern-extralight">
-              {useCases.map((useCase) => (
+              {useCases.map((useCase, index) => (
                 <ContentSection
                   key={useCase.id}
                   id={useCase.id}

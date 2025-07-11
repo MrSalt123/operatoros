@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { splitText } from 'motion-plus';
 import SkewedAutomationGraph from "./SkewedAutomationGraph";
 import SlidingButton from './buttons/SlidingButton';
+import Spacer from './Spacer';
 
 export default function Hero() {
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -42,15 +43,16 @@ export default function Hero() {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-black text-white">
       <div className='max-w-8xl mx-auto'>
-        <div className="relative z-10 max-w-3xl px-8 pt-32 flex flex-col gap-6" ref={containerRef} style={{ visibility: 'hidden' }}>
+        <div className="relative z-10 max-w-3xl px-4 md:px-8 pt-32 flex flex-col" ref={containerRef} style={{ visibility: 'hidden' }}>
           <h1 className="display-xl" ref={headingRef}>
             Let the agents handle it.
           </h1>
+          <Spacer size="md" />
           <h5 className="text-[var(--text-muted)]" ref={subheadingRef}>
             Modern infrastructure for agent-powered growth. <br />
             Automate workflows, decisions, and execution.
           </h5>
-
+          <Spacer size="lg" />
           <motion.div
             className="flex gap-4 mt-4"
             initial={{ opacity: 0, y: 20 }}

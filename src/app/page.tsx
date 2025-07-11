@@ -6,7 +6,7 @@ import InteractiveUseCaseSection from "@/components/UseCases";
 import CTA from "@/components/CTA";
 export default function Home() {
   return (
-    <section>
+    <section className="overflow-hidden">
         <Hero />
         <SocialProof />
         <Solutions />

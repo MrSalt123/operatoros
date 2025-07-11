@@ -10,12 +10,12 @@ const WorkflowNode = ({ text, icon: Icon }: { text: string; icon: React.Componen
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -50 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-        className="flex items-center gap-3 p-3 rounded-lg bg-slate-100 border border-slate-200 w-64"
+        className="flex items-center gap-3 p-3 rounded-lg bg-bg-extralight border border-white/10 w-64"
     >
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center">
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[hsl(0,0%,95%)] flex items-center justify-center">
             <Icon />
         </div>
-        <p className="text-slate-800 text-sm font-medium">{text}</p>
+        <p className="">{text}</p>
     </motion.div>
 );
 
@@ -123,9 +123,9 @@ export default function BackendAutomationAnimation() {
                             transition={{ type: 'spring', stiffness: 300, damping: 25 }}
                             className="absolute inset-0 flex items-center justify-center"
                         >
-                            <div className="p-4 rounded-lg bg-slate-100 border border-slate-200">
+                            <div className="p-4 rounded-lg bg-bg-extralight border border-white/10">
                                 <motion.p
-                                    className="text-slate-800 font-medium"
+                                    className=""
                                     variants={{
                                         hidden: { opacity: 0 },
                                         visible: { opacity: 1, transition: { staggerChildren: 0.05 } }

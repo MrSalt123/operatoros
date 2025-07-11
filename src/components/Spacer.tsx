@@ -5,7 +5,7 @@ const sizeMap: Record<SpacerSize, string> = {
   sm: '8px',
   md: '16px',
   lg: '24px',
-  xl: '36px',
+  xl: '32px',
   xxl: '48px',
 };
 

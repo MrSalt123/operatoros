@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Spacer from '../Spacer';
 
 // --- Configuration for Calendar Events ---
 const scheduleEvents: EventType[] = [
@@ -74,12 +75,13 @@ export default function AdminAutomationAnimation() {
   }, []);
 
   return (
-    <div className="w-3/4 h-3/4 p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col font-sans">
+    <div className="w-3/4 h-3/4 p-4 bg-bg-extralight rounded-xl border border-white/10 flex flex-col font-sans">
       {/* Header */}
       <div className="flex-shrink-0 mb-3 px-2 flex justify-between items-center">
         <div className='flex flex-col'>
-          <span className="text-sm font-semibold text-slate-700">Team Schedule</span>
-          <span className="text-xs text-slate-500">AI is populating shifts...</span>
+          <span className="text-sm font-semibold">Team Schedule</span>
+          <Spacer size='xs' />
+          <span className="text-xs text-muted">AI is populating schedule...</span>
         </div>
         <div className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></div>
       </div>
@@ -88,7 +90,7 @@ export default function AdminAutomationAnimation() {
       <div className="flex-grow grid grid-cols-5 grid-rows-9 gap-1 relative">
         {/* Day Headers */}
         {['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].map(day => (
-          <div key={day} className="text-center text-xs font-semibold text-slate-500 border-b border-slate-200 pb-1">
+          <div key={day} className="text-center text-xs font-semibold border-b border-white/90 pb-1">
             {day}
           </div>
         ))}

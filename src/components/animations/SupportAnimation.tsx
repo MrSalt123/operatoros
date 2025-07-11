@@ -88,11 +88,11 @@ export default function CustomerSupportAnimation() {
   }, []); // The conversation array is stable, so no need to include it in dependencies.
 
   return (
-    <div className="w-3/4 h-3/4 p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col font-sans">
+    <div className="w-3/4 h-3/4 p-4 bg-bg-extralight rounded-xl border border-white/10 flex flex-col font-sans">
       {/* Header */}
       <div className="flex-shrink-0 mb-3 px-2 flex items-center gap-2">
         <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
-        <span className="text-sm font-semibold text-slate-700">Support Chat</span>
+        <span className="text-sm font-semibold">Support Chat</span>
       </div>
 
       {/* Chat Log */}
@@ -105,8 +105,8 @@ export default function CustomerSupportAnimation() {
       </div>
       
       {/* Input Bar */}
-      <div className="flex-shrink-0 mt-3 p-2 bg-white rounded-lg border border-slate-200 flex items-center gap-2">
-        <span className="flex-grow text-xs text-slate-400">Type your message...</span>
+      <div className="flex-shrink-0 mt-3 p-2 bg-bg-extralight rounded-lg border border-white/10 flex items-center gap-2">
+        <span className="flex-grow text-xs text-muted">Type your message...</span>
         <button className="w-8 h-8 rounded-md bg-blue-500 text-white flex items-center justify-center">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />

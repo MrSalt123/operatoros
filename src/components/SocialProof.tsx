@@ -84,6 +84,16 @@ export default function LogoTicker() {
         .logo-item:hover {
             opacity: 1;
         }
+        @media (max-width: 768px) {
+          .logo-ticker-track {
+            width: calc(160px * ${companies.length * 2});
+          }
+      
+          .logo-item {
+            width: 160px;
+            padding: 0 1rem;
+          }
+        }
       `}</style>
     </div>
   );

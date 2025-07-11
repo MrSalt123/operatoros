@@ -11,7 +11,7 @@ export default function Footer() {
             </div>
 
             {/* The rest of the footer content, stacked on top */}
-            <div className="relative bg-background py-16 px-6 z-10">
+            <div className="relative bg-background pt-16 pb-4 px-6 z-10">
                 <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
                     {/* Site Links */}
                     <div className="flex flex-col gap-2">
@@ -47,9 +47,9 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="flex flex-col items-end border-t border-white/10 pt-8 mt-16">
+                <div className="flex flex-col items-end border-t border-white/10 pt-4 mt-16">
                     <p className="text-white/40 md:text-left">
-                        © {new Date().getFullYear()} | OperatorOS / Built by <a href="https://btwn.design">BTWN Web Design</a>
+                        © {new Date().getFullYear()} | OperatorOS / Built by <a href="https://btwn.design" className="underline">BTWN Web Design</a>
                     </p>
                 </div>
             </div>

@@ -6,7 +6,7 @@ import React from 'react';
 import { easeOut } from 'framer-motion';
 
 // --- Configuration ---
-const BRAND_PURPLE = '#6d28d9';
+const BRAND_PURPLE = '#262626'; // Restored purple for a visible glow effect
 const MODULES = [
     { name: 'CRM', icon: 'Database' },
     { name: 'Sales Assistant', icon: 'UserCheck' },
@@ -25,7 +25,6 @@ type ModuleCardProps = {
 };
 
 // --- SVG Icons ---
-// A collection of icons for the modules.
 const ICONS = {
     Database: (props: React.SVGProps<SVGSVGElement>) => <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>,
     UserCheck: (props: React.SVGProps<SVGSVGElement>) => <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><polyline points="16 11 18 13 22 9" /></svg>,
@@ -57,8 +56,8 @@ const ModuleCard = ({ module, isActivated }: ModuleCardProps) => {
             boxShadow: '0px 0px 0px 0px rgba(0,0,0,0)',
         },
         active: {
-            backgroundColor: 'rgba(109, 40, 217, 0.2)',
-            borderColor: 'rgba(109, 40, 217, 0.8)',
+            backgroundColor: `rgba(36, 36, 36, 0.2)`,
+            borderColor: `rgba(255, 255, 255, 0.5)`,
             boxShadow: `0px 0px 20px 0px ${BRAND_PURPLE}`,
             transition: { duration: 0.5, ease: easeOut },
         },
@@ -68,7 +67,7 @@ const ModuleCard = ({ module, isActivated }: ModuleCardProps) => {
         <motion.div
             variants={cardVariants}
             animate={isActivated ? 'active' : 'inactive'}
-            className="relative p-4 rounded-xl border backdrop-blur-sm overflow-hidden"
+            className="relative p-4 rounded-xl border backdrop-blur-sm overflow-hidden h-full"
         >
             <div className="flex items-center gap-4">
                 <Icon name={module.icon} className="w-6 h-6 text-white/50" />
@@ -81,7 +80,7 @@ const ModuleCard = ({ module, isActivated }: ModuleCardProps) => {
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.5 }}
-                        className="absolute top-3 right-3"
+                        className="absolute top-4 right-3"
                     >
                         <Icon name="Check" className="w-5 h-5 text-white" />
                     </motion.div>
@@ -124,7 +123,7 @@ export default function FuturisticHud() {
     }, [orbControls]);
 
     return (
-        <div className="w-full bg-background flex items-center justify-center font-sans overflow-hidden">
+        <div className="w-full bg-black flex items-center justify-center font-sans overflow-hidden p-4">
             {/* Background Effects */}
             <div className="absolute inset-0 z-0 opacity-20">
                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(109,40,217,0.3)_0,_transparent_50%)]" />
@@ -136,27 +135,56 @@ export default function FuturisticHud() {
                 animate={{ opacity: 1, y: 0, rotateX: 0 }}
                 transition={{ duration: 1, ease: 'easeOut' }}
                 style={{ perspective: '1000px' }}
+                className="w-full max-w-2xl"
             >
-                <div className="relative grid grid-cols-2 md:grid-cols-3 gap-4 p-6 rounded-2xl" style={{ transform: 'rotateX(10deg)' }}>
-                    {/* Glowing Orb */}
-                    <motion.div
-                        animate={orbControls}
-                        className="absolute w-8 h-8 rounded-full z-10"
-                        style={{
-                            background: `radial-gradient(circle, ${BRAND_PURPLE} 0%, transparent 70%)`,
-                            boxShadow: `0 0 30px 10px ${BRAND_PURPLE}`,
-                        }}
-                    />
+                {/* Dashboard Panel */}
+                <div
+                    className="relative rounded-xl border-t border-l border-white/10 p-6 shadow-inner overflow-hidden"
+                    style={{
+                        backgroundImage: `linear-gradient(to bottom, var(--bg-light), var(--background)), linear-gradient(to right, var(--bg-light), var(--background))`,
+                        backgroundBlendMode: 'overlay',
+                        WebkitMaskImage:
+                            'linear-gradient(to bottom, white 60%, transparent), linear-gradient(to right, white 80%, transparent)',
+                        maskImage:
+                            'linear-gradient(to bottom, white 60%, transparent), linear-gradient(to right, white 80%, transparent)',
+                        WebkitMaskComposite: 'destination-in',
+                        maskComposite: 'intersect',
+                    }}
+                >
+                    {/* Top-left gray glow */}
+                    <div className="absolute top-[-40px] left-[-40px] w-36 h-36 bg-white/10 blur-2xl rounded-full pointer-events-none z-0" />
 
-                    {/* Modules */}
-                    {MODULES.map((module, i) => (
-                        <div key={module.name} id={`module-${i}`}>
-                            <ModuleCard
-                                module={module}
-                                isActivated={activatedModules.includes(module.name)}
-                            />
+                    {/* Dashboard Header */}
+                    <div className="mb-6 flex justify-between items-center px-2">
+                        <h4 className="text-lg font-semibold text-white/80">Your Agents</h4>
+                        <div className="flex items-center gap-1.5">
+                            <span className="text-sm text-green-400">●</span>
+                            <span className="text-xs text-white/50">All systems operational</span>
                         </div>
-                    ))}
+                    </div>
+
+                    {/* Grid container (with the orb and modules) */}
+                    <div className="relative grid grid-cols-2 gap-4">
+                        {/* Glowing Orb */}
+                        <motion.div
+                            animate={orbControls}
+                            className="absolute w-8 h-8 rounded-full z-20"
+                            style={{
+                                background: `radial-gradient(circle, ${BRAND_PURPLE} 0%, transparent 70%)`,
+                                boxShadow: `0 0 30px 10px ${BRAND_PURPLE}`,
+                            }}
+                        />
+
+                        {/* Modules */}
+                        {MODULES.map((module, i) => (
+                            <div key={module.name} id={`module-${i}`} className="z-10">
+                                <ModuleCard
+                                    module={module}
+                                    isActivated={activatedModules.includes(module.name)}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </motion.div>
         </div>

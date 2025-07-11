@@ -105,11 +105,17 @@ export default function InteractiveUseCaseSection() {
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
   const handleMenuClick = (id: string) => {
-    contentRefs.current[id]?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
+    const container = scrollContainerRef.current;
+    const target = contentRefs.current[id];
+    if (container && target) {
+      const offsetTop = target.offsetTop;
+      container.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth',
+      });
+    }
   };
+  
 
   return (
     <section className="bg-background text-white py-24 px-4 font-sans">
@@ -144,7 +150,7 @@ export default function InteractiveUseCaseSection() {
           {/* Right-hand Content Area */}
           <main
             ref={scrollContainerRef}
-            className="h-[30rem] w-[80%] overflow-y-auto bg-white/5 border border-white/10 scrollbar-hidden"
+            className="relative h-[30rem] w-[80%] overflow-y-auto bg-white/5 border border-white/10 scrollbar-hidden"
           >
             <div className="space-y-18 bg-dot-pattern-extralight">
               {useCases.map((useCase) => (

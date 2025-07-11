@@ -46,7 +46,7 @@ export default function VoiceAgentAnimation() {
             </div>
 
             {/* Main animation area */}
-            <div className="flex-grow flex flex-col items-center justify-center bg-white/5 rounded-lg p-6">
+            <div className="flex-grow flex flex-col items-center justify-center bg-bg-extralight rounded-lg p-6">
                 
                 {/* Animated Sound Waves */}
                 <motion.div

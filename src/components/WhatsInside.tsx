@@ -40,9 +40,9 @@ export default function WhatsInside() {
 
                         {/* Block 2 */}
                         <div className="bg-bg-light p-2 flex flex-col gap-4">
-                            <div className="bg-bg-extralight pt-18 pl-18 relative overflow-hidden">
-                                <div className="absolute top-12 left-8 w-135 h-90 rounded-full bg-[#39FF14] blur-2xl opacity-40 z-0" />
-                                <img src="/img/community3.png" alt="Community Hub" className="relative w-auto h-full" />
+                            <div className="bg-bg-extralight pb-18 pr-18 relative overflow-hidden">
+                                <div className="absolute top-0 left-0 w-120 h-70 rounded-full bg-[#39FF14] blur-2xl opacity-40 z-0" />
+                                <img src="/img/101.png" alt="Community Hub" className="relative w-auto h-full" />
                             </div>
                             <div className="flex flex-col p-4 gap-4">
                                 <h4 className="font-semibold">Your Personal Project Accelerator</h4>

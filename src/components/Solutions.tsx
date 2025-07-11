@@ -10,13 +10,14 @@ import Spacer from "./Spacer";
 
 export default function ModularAISolutions() {
   return (
-    <section className="relative text-white">
+    <section className="relative text-white pb-24">
 
       {/* Top full-width gradient section */}
       <div className="w-full bg-gradient-to-b from-bg-extralight to-background">
         <div className="max-w-6xl mx-auto py-32 px-6">
-          <div className="text-left mb-20 p-8">
-            <h2 className="mb-8">The OperatorOS Blueprint</h2>
+          <div className="text-left p-8">
+            <h2>The OperatorOS Blueprint</h2>
+            <Spacer size="xl" />
             <h6 className="text-foreground w-1/2">
               <strong>Deploy production-ready AI agents with confidence.</strong>
               <span className="text-muted">
@@ -26,6 +27,7 @@ export default function ModularAISolutions() {
           </div>
         </div>
       </div>
+      <Spacer size='xxl' />
 
       {/* Grid section contained to max-w-6xl */}
       <div className="layout max-w-6xl mx-auto">
@@ -93,7 +95,7 @@ export default function ModularAISolutions() {
           </div>
         </div>
 
-        <div className="col-span-4 flex flex-row p-8 gap-2">
+        <div className="col-span-4 flex flex-row p-8 gap-2 pb-32">
           <div className="flex flex-col">
             <h4 className="">Your AI Co-Pilot</h4>
             <Spacer size='xs' />

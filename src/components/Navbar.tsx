@@ -10,7 +10,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between backdrop-blur-md bg-black/30 text-foreground">
+    <header className="fixed w-full z-50 backdrop-blur-md bg-black/30 text-foreground px-4">
+  <div className="mx-auto max-w-screen-xl w-full flex items-center justify-between px-2 py-4">
       {/* Left: Logo */}
       <Link href="/" className="flex items-center gap-3 cursor-pointer">
         <Image src="/logos/operatoroslogo.svg" alt="OperatorOS Logo" width={32} height={32} />
@@ -66,6 +67,7 @@ export default function Navbar() {
           </div>
         </div>
       )}
+      </div>
     </header>
   );
 }

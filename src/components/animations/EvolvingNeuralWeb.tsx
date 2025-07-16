@@ -126,7 +126,7 @@ export default function FuturisticHud() {
         <div className="w-full bg-black flex items-center justify-center font-sans overflow-hidden p-4">
             {/* Background Effects */}
             <div className="absolute inset-0 z-0 opacity-20">
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(109,40,217,0.3)_0,_transparent_50%)]" />
+                <div className="absolute top-0 left-0 w-full h-full" />
             </div>
 
             {/* Console */}

@@ -1,9 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import Spacer from '@/components/Spacer';
+import DownloadModal from '@/components/DownloadModal';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowDownToLine } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
 const workflows = [
   {
@@ -16,6 +19,53 @@ const workflows = [
 ];
 
 export default function DownloadTemplates() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedWorkflow, setSelectedWorkflow] = useState<typeof workflows[0] | null>(null);
+
+  const handleDownloadClick = (workflow: typeof workflows[0]) => {
+    setSelectedWorkflow(workflow);
+    setIsModalOpen(true);
+  };
+
+  const handleDownload = async (email: string, phone: string) => {
+    if (!selectedWorkflow) return;
+
+    try {
+      // Save to Supabase
+      const { error } = await supabase
+        .from('download_leads')
+        .insert([
+          {
+            email,
+            phone,
+            workflow_title: selectedWorkflow.title,
+          },
+        ]);
+
+      if (error) {
+        console.error('Error saving to Supabase:', error);
+        throw error;
+      }
+
+      // Trigger download
+      const link = document.createElement('a');
+      link.href = selectedWorkflow.json;
+      link.download = `${selectedWorkflow.title}.json`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+    } catch (error) {
+      console.error('Download error:', error);
+      throw error;
+    }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedWorkflow(null);
+  };
+
   return (
     <section className="relative py-32 px-6 md:px-12 text-white overflow-hidden">
       {/* Background Pattern */}
@@ -50,21 +100,30 @@ export default function DownloadTemplates() {
                 />
               </div>
 
-              <a
-                href={workflow.json}
-                download
-                className="inline-flex items-center gap-2 mb-4 text-sm font-semibold hover:underline group"
+              <button
+                onClick={() => handleDownloadClick(workflow)}
+                className="inline-flex items-center gap-2 mb-4 text-sm font-semibold hover:underline group cursor-pointer"
               >
                 <h5 className="mb-0">{workflow.title}</h5>
                 <ArrowDownToLine
                   size={18}
                   className="opacity-60 group-hover:opacity-100 transition-opacity"
                 />
-              </a>
+              </button>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Download Modal */}
+      {selectedWorkflow && (
+        <DownloadModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          onDownload={handleDownload}
+          workflowTitle={selectedWorkflow.title}
+        />
+      )}
     </section>
   );
 }

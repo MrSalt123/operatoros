@@ -53,9 +53,9 @@ const steps: string[] = [
 ];
 
 // Re-introducing the FloatingLabelInput component for specific fields
-const commonInputStyles = "peer block w-full rounded-lg border border-white/30 bg-transparent px-3 py-3 text-white focus:border-white focus:outline-none focus:ring-0";
-const commonLabelStyles = "absolute left-3 top-0 z-10 origin-[0] -translate-y-1/2 scale-75 transform text-neutral-400 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:scale-75 peer-focus:text-white";
-const labelCutoutStyles = "bg-bg-light px-1";
+const commonInputStyles = "peer block w-full rounded-lg border border-white/10 bg-bg-light px-3 py-2.5 text-white focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white/20 text-sm";
+const commonLabelStyles = "absolute left-3 top-0 z-10 origin-[0] -translate-y-1/2 scale-75 transform text-muted duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:scale-75 peer-focus:text-white peer-focus:bg-bg-light";
+const labelCutoutStyles = "bg-bg px-1";
 
 const FloatingLabelInput: FC<FloatingLabelInputProps> = ({ id, label, ...props }) => (
   <div className="relative">
@@ -73,7 +73,7 @@ const ArrowIcon: FC<ArrowIconProps> = ({ className = '' }) => (
 );
 
 const FormLabel: FC<FormLabelProps> = ({ children }) => (
-  <label className="mb-4 block text-sm font-medium text-neutral-300">{children}</label>
+  <label className="mb-2 block text-sm font-medium text-neutral-300">{children}</label>
 );
 
 export default function AutomationForm(): ReactElement {
@@ -106,23 +106,23 @@ export default function AutomationForm(): ReactElement {
   const back = (): void => setStep(s => Math.max(s - 1, 0));
 
   const progressPercentage = ((step + 1) / steps.length) * 100;
-  const standardInputClass = "block w-full rounded-lg border border-white/30 bg-transparent px-3 py-3 text-white placeholder:text-neutral-400 focus:border-white focus:outline-none focus:ring-0";
+  const standardInputClass = "block w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-white placeholder:text-muted focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white/20 text-sm";
 
   return (
-    <section className="px-4 py-12">
-      <div className="mx-auto max-w-3xl rounded-2xl border border-neutral-700/50 bg-bg-light text-white shadow-2xl shadow-black/20">
-        <div className="p-8 sm:p-12">
-          <div className="mb-8">
-            <h2 className="mb-3 text-2xl font-bold tracking-tight">{steps[step]}</h2>
-            <div className="h-2 w-full rounded-full bg-neutral-700">
-              <div className="h-2 rounded-full bg-white transition-all duration-500 ease-in-out" style={{ width: `${progressPercentage}%` }} />
+    <section className="px-4 py-8">
+      <div className="mx-auto max-w-3xl rounded-xl border border-white/10 bg-bg-light text-white shadow-2xl shadow-black/20">
+        <div className="p-6 sm:p-8">
+          <div className="mb-6 text-center">
+            <h3 className="mb-4 text-xl font-semibold tracking-tight">{steps[step]}</h3>
+            <div className="h-1.5 w-full rounded-full bg-white/10">
+              <div className="h-1.5 rounded-full bg-white transition-all duration-500 ease-in-out" style={{ width: `${progressPercentage}%` }} />
             </div>
           </div>
 
-          <div className="mt-12">
-            <div className="space-y-8">
+          <div className="mt-8">
+            <div className="space-y-6">
               {step === 0 && (
-                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <FloatingLabelInput id="firstName" name="firstName" label="First Name" value={formData.firstName} onChange={handleChange} />
                   <FloatingLabelInput id="lastName" name="lastName" label="Last Name" value={formData.lastName} onChange={handleChange} />
                   <FloatingLabelInput id="email" name="email" label="Email Address" type="email" value={formData.email} onChange={handleChange} />
@@ -148,16 +148,16 @@ export default function AutomationForm(): ReactElement {
                 </div>
               )}
               {step === 1 && (
-                <div className="space-y-8">
-                  <textarea name="whatYouDo" placeholder="Explain what your business does (in simple terms)" className={`${standardInputClass} h-28`} value={formData.whatYouDo} onChange={handleChange} />
-                  <textarea name="partyDept" placeholder="Which dept. would celebrate most if automated?" className={`${standardInputClass} h-28`} value={formData.partyDept} onChange={handleChange} />
+                <div className="space-y-4">
+                  <textarea name="whatYouDo" placeholder="Explain what your business does (in simple terms)" className={`${standardInputClass} h-24`} value={formData.whatYouDo} onChange={handleChange} />
+                  <textarea name="partyDept" placeholder="Which dept. would celebrate most if automated?" className={`${standardInputClass} h-24`} value={formData.partyDept} onChange={handleChange} />
                   <div>
                     <FormLabel>Which of these tasks are done the old-school way?</FormLabel>
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                       {['Chatting with customers', 'Sending out emails', 'Managing tasks', 'Client Onboarding', 'Contract Sending', 'Managing KPIs'].map(option => (
-                        <label key={option} className="flex cursor-pointer items-center rounded-lg bg-neutral-800/80 p-3 transition-colors hover:bg-neutral-700/80">
-                          <input type="checkbox" className="h-5 w-5 rounded border-neutral-600 bg-neutral-700 text-accent focus:ring-accent" checked={formData.oldSchoolTasks.includes(option)} onChange={() => handleCheckboxChange('oldSchoolTasks', option)} />
-                          <span className="ml-4 text-sm font-medium">{option}</span>
+                        <label key={option} className="flex cursor-pointer items-center rounded-lg bg-white/5 p-2.5 transition-colors hover:bg-white/10">
+                          <input type="checkbox" className="h-4 w-4 rounded border-white/20 bg-white/5 text-white focus:ring-white/20" checked={formData.oldSchoolTasks.includes(option)} onChange={() => handleCheckboxChange('oldSchoolTasks', option)} />
+                          <span className="ml-3 text-sm">{option}</span>
                         </label>
                       ))}
                     </div>
@@ -165,25 +165,25 @@ export default function AutomationForm(): ReactElement {
                 </div>
               )}
               {step === 2 && (
-                <div className="space-y-8">
+                <div className="space-y-4">
                   <div>
                     <FormLabel>What are your biggest operational headaches?</FormLabel>
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                       {['Never-ending repetitive tasks', 'Silly (but costly) manual errors', 'My team is bogged down with admin work', 'We own software we barely use', 'Our systems don’t talk to each other'].map(option => (
-                        <label key={option} className="flex cursor-pointer items-center rounded-lg bg-neutral-800/80 p-3 transition-colors hover:bg-neutral-700/80">
-                          <input type="checkbox" className="h-5 w-5 rounded border-neutral-600 bg-neutral-700 text-accent focus:ring-accent" checked={formData.painPoints.includes(option)} onChange={() => handleCheckboxChange('painPoints', option)} />
-                          <span className="ml-4 text-sm font-medium">{option}</span>
+                        <label key={option} className="flex cursor-pointer items-center rounded-lg bg-white/5 p-2.5 transition-colors hover:bg-white/10">
+                          <input type="checkbox" className="h-4 w-4 rounded border-white/20 bg-white/5 text-white focus:ring-white/20" checked={formData.painPoints.includes(option)} onChange={() => handleCheckboxChange('painPoints', option)} />
+                          <span className="ml-3 text-sm">{option}</span>
                         </label>
                       ))}
                     </div>
                   </div>
-                  <textarea name="wishes" placeholder="If you had 3 automation wishes, what would they be?" className={`${standardInputClass} h-28`} value={formData.wishes} onChange={handleChange} />
+                  <textarea name="wishes" placeholder="If you had 3 automation wishes, what would they be?" className={`${standardInputClass} h-24`} value={formData.wishes} onChange={handleChange} />
                 </div>
               )}
               {step === 3 && (
-                <div className="space-y-8">
-                  <textarea name="snapTask" placeholder="Automate 1 task by snapping your fingers..." className={`${standardInputClass} h-28`} value={formData.snapTask} onChange={handleChange} />
-                  <textarea name="tools" placeholder="Specific tools or software to integrate?" className={`${standardInputClass} h-28`} value={formData.tools} onChange={handleChange} />
+                <div className="space-y-4">
+                  <textarea name="snapTask" placeholder="Automate 1 task by snapping your fingers..." className={`${standardInputClass} h-24`} value={formData.snapTask} onChange={handleChange} />
+                  <textarea name="tools" placeholder="Specific tools or software to integrate?" className={`${standardInputClass} h-24`} value={formData.tools} onChange={handleChange} />
                   <select name="timeline" className={standardInputClass} value={formData.timeline} onChange={handleChange}>
                     <option value="" disabled>Ideal timeline...</option>
                     <option value="Yesterday">Yesterday!</option>
@@ -195,12 +195,12 @@ export default function AutomationForm(): ReactElement {
               )}
               {step === 4 && (
                 <div className="text-center">
-                  <textarea name="finalComments" placeholder="Anything else you'd like to add?" className={`${standardInputClass} h-32`} value={formData.finalComments} onChange={handleChange} />
+                  <textarea name="finalComments" placeholder="Anything else you'd like to add?" className={`${standardInputClass} h-28`} value={formData.finalComments} onChange={handleChange} />
                 </div>
               )}
             </div>
 
-            <div className="mt-12 flex items-center justify-end gap-x-3">
+            <div className="mt-8 flex items-center justify-end gap-x-3">
               <button onClick={back} className={`p-2 rounded-full text-neutral-400 transition-all hover:bg-white/10 hover:text-white ${step === 0 ? 'pointer-events-none opacity-0' : 'opacity-100'}`} aria-label="Go Back" disabled={step === 0}>
                 <ArrowIcon className="rotate-180 transform" />
               </button>

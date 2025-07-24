@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function WhatsInside() {
     return (
         <section className="w-full px-6 py-48 bg-background text-white flex justify-center">
@@ -29,7 +31,7 @@ export default function WhatsInside() {
                         <div className="bg-bg-light p-2 flex flex-col gap-4 md:translate-y-36">
                             <div className="bg-bg-extralight pt-18 pl-18 relative overflow-hidden">
                                 <div className="absolute top-12 left-8 w-135 h-90 rounded-full bg-glow blur-2xl opacity-40 z-0" />
-                                <img src="/img/community3.png" alt="Community Hub" className="relative w-auto h-full" />
+                                <Image src="/img/community3.png" alt="Community Hub" width={400} height={300} className="relative w-auto h-full" />
                             </div>
                             <div className="flex flex-col p-4 gap-4">
                                 <h4 className="font-semibold">Get Unstuck, Instantly</h4>
@@ -42,7 +44,7 @@ export default function WhatsInside() {
                         <div className="bg-bg-light p-2 flex flex-col gap-4">
                             <div className="bg-bg-extralight pb-18 pr-18 relative overflow-hidden">
                                 <div className="absolute top-0 left-0 w-120 h-70 rounded-full bg-[#39FF14] blur-2xl opacity-40 z-0" />
-                                <img src="/img/101.png" alt="Community Hub" className="relative w-auto h-full" />
+                                <Image src="/img/101.png" alt="Community Hub" width={400} height={300} className="relative w-auto h-full" />
                             </div>
                             <div className="flex flex-col p-4 gap-4">
                                 <h4 className="font-semibold">Your Personal Project Accelerator</h4>
@@ -55,7 +57,7 @@ export default function WhatsInside() {
                         <div className="bg-bg-light p-2 flex flex-col gap-4 md:translate-y-36">
                             <div className="bg-bg-extralight pt-18 pl-18 relative overflow-hidden">
                                 <div className="absolute top-12 left-8 w-135 h-90 rounded-full bg-orange-500 blur-2xl opacity-40 z-0" />
-                                <img src="/img/community3.png" alt="Community Hub" className="relative w-auto h-full" />
+                                <Image src="/img/community3.png" alt="Community Hub" width={400} height={300} className="relative w-auto h-full" />
                             </div>
                             <div className="flex flex-col p-4 gap-4">
                                 <h4 className="font-semibold">Never Build Alone</h4>
@@ -75,16 +77,20 @@ export default function WhatsInside() {
                                 <div className="absolute bottom-12 right-10 w-52 h-64 rounded-full bg-blue-500 blur-2xl opacity-40 z-0" />
 
                                 {/* Top-left image */}
-                                <img
+                                <Image
                                     src="/img/n8n.png"
                                     alt="Top Left"
+                                    width={300}
+                                    height={200}
                                     className="absolute top-4 left-0 w-[46%] h-auto object-cover rounded-md z-10"
                                 />
 
                                 {/* Bottom-right image */}
-                                <img
+                                <Image
                                     src="/img/n8n2.png"
                                     alt="Bottom Right"
+                                    width={300}
+                                    height={200}
                                     className="absolute bottom-4 right-0 w-[46%] h-auto object-cover rounded-md z-10"
                                 />
                             </div>

@@ -28,7 +28,7 @@ export default function DownloadTemplates() {
   };
 
   const handleDownload = async (email: string, phone: string) => {
-    if (!selectedWorkflow) return;
+    if (!selectedWorkflow || !supabase) return;
 
     try {
       // Save to Supabase

@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function BottleneckTasks() {
   return (
     <div
@@ -24,28 +26,28 @@ export default function BottleneckTasks() {
       <div className="flex flex-col gap-3 text-sm text-white/80">
         <div className="flex items-center gap-8">
           <span className="text-white flex flex-row gap-2 items-center">
-            <img src="/icons/package.svg" alt="package" className="w-4 h-4" /> Inventory Sync
+            <Image src="/icons/package.svg" alt="package" width={16} height={16} className="w-4 h-4" /> Inventory Sync
           </span>
           <CheckIcon />
         </div>
 
         <div className="flex items-center gap-9">
           <span className="text-white flex flex-row gap-2 items-center">
-            <img src="/icons/invoice.svg" alt="invoice" className="w-4 h-4" /> Invoice Parser
+            <Image src="/icons/invoice.svg" alt="invoice" width={16} height={16} className="w-4 h-4" /> Invoice Parser
           </span>
           <WarningIcon />
         </div>
 
         <div className="flex items-center gap-6">
           <span className="text-white flex flex-row gap-2 items-center">
-            <img src="/icons/lead.svg" alt="lead" className="w-4 h-4" /> Lead Attribution
+            <Image src="/icons/lead.svg" alt="lead" width={16} height={16} className="w-4 h-4" /> Lead Attribution
           </span>
           <WarningIcon />
         </div>
 
         <div className="flex items-center gap-[46.5px]">
           <span className="text-white flex flex-row gap-2 items-center">
-            <img src="/icons/email.svg" alt="email" className="w-4 h-4" />Email Triage
+            <Image src="/icons/email.svg" alt="email" width={16} height={16} className="w-4 h-4" />Email Triage
           </span>
           <CheckIcon />
         </div>

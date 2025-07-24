@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image';
+
 // Array of company logos. I've added two new placeholders.
 // The `invert` property will be used to add the invert class conditionally.
 const companies = [
@@ -30,9 +32,11 @@ export default function LogoTicker() {
           <div className="logo-ticker-track">
             {extendedLogos.map((company, index) => (
               <div key={index} className="logo-item">
-                <img
+                <Image
                   src={company.logo}
                   alt={`Logo for ${company.name}`}
+                  width={120}
+                  height={48}
                   // Conditionally apply the invert class
                   className={`max-h-12 w-auto object-contain grayscale ${company.invert ? 'invert' : ''}`}
                 />

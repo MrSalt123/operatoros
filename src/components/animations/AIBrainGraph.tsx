@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function AIBrainGraph() {
   return (
@@ -34,7 +35,7 @@ export default function AIBrainGraph() {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <img src="/img/brain.svg" alt="ai brain" className="w-full h-full object-contain" />
+        <Image src="/img/brain.svg" alt="ai brain" width={144} height={144} className="w-full h-full object-contain" />
       </motion.div>
 
       {/* Node bubbles */}

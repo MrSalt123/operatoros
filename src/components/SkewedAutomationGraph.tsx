@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Image from 'next/image';
+
 export default function SkewedAutomationGraph() {
     const nodes = [
         { id: 'form', top: 120, left: 160, width: 80, height: 80, img: '/img/form.svg', radius: ['1.7rem', '.5rem', '.5rem', '1.7rem'] },
@@ -334,13 +336,15 @@ export default function SkewedAutomationGraph() {
                     >
                         {node.label ? (
                             <div className="flex flex-row items-center gap-3">
-                                <img src={node.img} alt={node.label} className="w-10 h-10" />
+                                <Image src={node.img} alt={node.label} width={40} height={40} className="w-10 h-10" />
                                 <p className="text-white font-medium">{node.label}</p>
                             </div>
                         ) : (
-                            <img
+                            <Image
                                 src={node.img}
                                 alt={node.id}
+                                width={node.circle ? 28 : 40}
+                                height={node.circle ? 28 : 40}
                                 className={`${node.circle ? 'w-7 h-7' : 'w-10 h-10'} ${node.id === 'form' ? 'ml-2' : ''}`}
                             />
                         )}

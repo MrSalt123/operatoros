@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, type FC, type ChangeEvent, type ReactNode, type InputHTMLAttributes } from 'react';
+import type { ReactElement } from 'react';
 
 // --- Type Definitions ---
 
@@ -75,7 +76,7 @@ const FormLabel: FC<FormLabelProps> = ({ children }) => (
   <label className="mb-4 block text-sm font-medium text-neutral-300">{children}</label>
 );
 
-export default function AutomationForm(): JSX.Element {
+export default function AutomationForm(): ReactElement {
   const [step, setStep] = useState<number>(0);
   const [formData, setFormData] = useState<FormData>({
     firstName: '', lastName: '', email: '', phone: '', company: '',

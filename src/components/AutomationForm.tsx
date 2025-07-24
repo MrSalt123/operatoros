@@ -92,7 +92,11 @@ export default function AutomationForm(): JSX.Element {
   const handleCheckboxChange = (field: 'oldSchoolTasks' | 'painPoints', option: string): void => {
     setFormData(prev => {
       const currentSelection = new Set(prev[field]);
-      currentSelection.has(option) ? currentSelection.delete(option) : currentSelection.add(option);
+      if (currentSelection.has(option)) {
+        currentSelection.delete(option);
+      } else {
+        currentSelection.add(option);
+      }
       return { ...prev, [field]: Array.from(currentSelection) };
     });
   };

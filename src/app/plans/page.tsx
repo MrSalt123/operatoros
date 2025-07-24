@@ -3,7 +3,6 @@
 import { useRef, useEffect } from 'react';
 import { splitText } from 'motion-plus';
 import { animate, stagger } from 'motion';
-import SlidingButton from '@/components/buttons/SlidingButton';
 import Spacer from '@/components/Spacer';
 import AutomationForm from '@/components/AutomationForm';
 

@@ -38,7 +38,7 @@ export default function MeetInstructor() {
                     <Spacer size='lg' />
                     <div className="border-l-4 border-primary pl-4 italic text-white/90">
                         <p>
-                            “I started this academy because I believe AI shouldn't just be for big tech.
+                            “I started this academy because I believe AI shouldn&apos;t just be for big tech.
                             Everyone should have the tools to automate boring tasks and reclaim their time.
                             I teach practical systems that generate results—not hype.”
                         </p>

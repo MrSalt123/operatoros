@@ -67,7 +67,7 @@ export default function ModularAISolutions() {
 
         </div>
 
-        <div className="col-span-4 md:col-start-5 md:col-span-8 px-8">
+        <div className="col-span-4 md:col-start-5 md:col-span-8 px-8 border-b border-white/10 py-4">
           <LeadGenerationResult />
         </div>
 

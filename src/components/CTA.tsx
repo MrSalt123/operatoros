@@ -6,7 +6,7 @@ import SlidingButton from './buttons/SlidingButton';
 
 export default function CallToAction() {
   return (
-    <section className="relative pt-32 pb-18 px-6 w-full bg-gradient-to-b from-[#1c1c1c] to-black text-white overflow-hidden">
+    <section className="relative pt-32 pb-18 px-6 w-full ">
       <div className="max-w-6xl mx-auto text-center flex flex-row justify-between">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

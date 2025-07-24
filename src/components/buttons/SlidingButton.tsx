@@ -10,7 +10,7 @@ interface SlidingButtonProps {
 export default function SlidingButton({ label, className = '' }: SlidingButtonProps) {
   return (
     <button
-      className={`group relative overflow-hidden px-5 py-2 rounded-lg font-medium h-[42px] min-w-[120px] ${className}`}
+      className={`group relative overflow-hidden px-4 py-2 rounded-lg font-medium h-[42px] min-w-[160px] ${className}`}
     >
       <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-y-full">
         {label}

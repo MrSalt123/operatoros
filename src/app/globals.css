@@ -44,7 +44,7 @@ body {
 .display-2xl {
   /*  font-family: var(--font-primary);*/
   font-size: clamp(2.8rem, 8vw, 6rem);
-  line-height: 1;
+  line-height: 1.1;
   font-weight: 500;
   letter-spacing: -.03em;
 }
@@ -59,7 +59,7 @@ body {
 h1 {
   /*  font-family: var(--font-primary);*/
   font-size: clamp(3rem, 6vw, 4rem);
-  line-height: 1.2;
+  line-height: 1.1;
   letter-spacing: -0.01em;
   font-weight: 600;
 }
@@ -67,7 +67,7 @@ h1 {
 h2 {
   /*  font-family: var(--font-primary);*/
   font-size: clamp(2.5rem, 4vw, 3.2rem);
-  line-height: 1.2;
+  line-height: 1.1;
   letter-spacing: -0.01em;
   font-weight: 500;
 }
@@ -75,7 +75,7 @@ h2 {
 h3 {
   /*  font-family: var(--font-primary);*/
   font-size: clamp(2rem, 3vw, 2.5rem);
-  line-height: 1.2;
+  line-height: 1;
   letter-spacing: -0.005em;
   font-weight: 500;
 }
@@ -134,7 +134,7 @@ p {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   /* Mobile: 4 columns */
-  gap: 8px;
+  /* gap: 8px; */
   /* 8px gap between columns */
   padding-left: 16px;
   /* 16px left/right padding */
@@ -145,7 +145,7 @@ p {
   .layout {
     grid-template-columns: repeat(8, minmax(0, 1fr));
     /* Tablet: 8 columns */
-    gap: 16px;
+     /* gap: 16px; */
     padding-left: 32px;
     padding-right: 32px;
   }

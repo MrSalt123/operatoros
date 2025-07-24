@@ -118,10 +118,10 @@ export default function InteractiveUseCaseSection() {
 
 
   return (
-    <section className="bg-background text-white py-24 px-4 font-sans">
+    <section id="services" className="bg-background text-white py-24 px-4 font-sans">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 md:mb-16 text-center">
-          See what OperatorOS can do.
+          See what OperatorOS can do for you.
         </h2>
 
         {/* The container is a column on mobile and a row on desktop */}

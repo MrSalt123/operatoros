@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import SkewedAutomationGraph from "./SkewedAutomationGraph";
 import SlidingButton from './buttons/SlidingButton';
 import Spacer from './Spacer';
+import Link from '../../node_modules/next/link';
 
 // Animation variants for the text content
 const containerVariants = {
@@ -65,8 +66,12 @@ export default function Hero() {
             className="flex gap-4 mt-4"
             variants={itemVariants}
           >
-            <SlidingButton label="Apply Now" className='bg-bg-light text-[var(--text)]' />
-            <SlidingButton label="Learn More" className='bg-foreground text-[var(--background)]' />
+            <Link href="https://calendar.app.google/bPU8bCmykSW9QmZEA">
+              <SlidingButton label="Speak to an Expert" className='bg-bg-extralight border border-accent/60 text-[var(--text)] w-1/4' />
+            </Link>
+            <Link href="/automations">
+              <SlidingButton label="Download Templates" className='bg-foreground text-black w-1/4' />
+            </Link>
           </motion.div>
 
         </motion.div>

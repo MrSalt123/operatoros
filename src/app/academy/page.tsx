@@ -7,6 +7,9 @@ import { motion } from 'framer-motion';
 import Image from "next/image";
 import SlidingButton from '@/components/buttons/SlidingButton';
 import WhatsInside from '@/components/WhatsInside';
+import MeetInstructor from '@/components/MeetInstructor';
+import TestimonialTicker from '@/components/AcademyTestimonials';
+import AcademyFinalCTA from '@/components/AcademyCTA';
 
 export default function Home() {
     const headingRef = useRef<HTMLHeadingElement>(null);
@@ -58,9 +61,9 @@ export default function Home() {
                     transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.5 }}
                 >
                     <a href="https://whop.com/operatoros-ai-agent-academy/" target="_blank">
-                        <SlidingButton label="Join Now" className="bg-bg-light text-[var(--text)]" />
+                        <SlidingButton label="Enroll Now" className="bg-bg-light text-[var(--text)] border border-white/10" />
                     </a>
-                    <SlidingButton label="Learn More" className="bg-foreground text-background" />
+                    
                 </motion.div>
             </div>
 
@@ -81,6 +84,12 @@ export default function Home() {
             </motion.div>
 
             <WhatsInside />
+
+            <MeetInstructor />
+
+            <TestimonialTicker />
+
+            <AcademyFinalCTA />
         </section>
     );
 }

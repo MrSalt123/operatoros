@@ -1,6 +1,6 @@
 export default function WhatsInside() {
     return (
-        <section className="w-full px-6 py-36 bg-background text-white flex justify-center">
+        <section className="w-full px-6 py-48 bg-background text-white flex justify-center">
             {/* Add `relative` here to make this the positioning context for the lines */}
             <div className="relative max-w-5xl w-full">
 

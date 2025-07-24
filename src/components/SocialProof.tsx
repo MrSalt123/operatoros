@@ -21,13 +21,10 @@ export default function LogoTicker() {
   return (
     <div className="bg-background py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-xl text-center flex flex-col mb-16 gap-2">
-          <h4 className="text-foreground">
-            Augmenting the world&apos;s most ambitious teams.
-          </h4>
-          <h4 className="text-muted">
-            From agile startups to global enterprises.
-          </h4>
+        <div className="mx-auto max-w-6xl text-center flex flex-col mb-16 gap-2">
+          <h2 className="text-foreground">
+            Augmenting businesses with custom <br /> automation solutions.
+          </h2>
         </div>
         <div className="logo-ticker-wrapper">
           <div className="logo-ticker-track">

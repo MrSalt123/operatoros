@@ -177,7 +177,7 @@ export default function AutomationForm(): JSX.Element {
               )}
               {step === 3 && (
                 <div className="space-y-8">
-                  <textarea name="snapTask" placeholder="Automate 1 task by snapping your fingers..." className={`${standardInputClass} h-28`} value={formData.tools} onChange={handleChange} />
+                  <textarea name="snapTask" placeholder="Automate 1 task by snapping your fingers..." className={`${standardInputClass} h-28`} value={formData.snapTask} onChange={handleChange} />
                   <textarea name="tools" placeholder="Specific tools or software to integrate?" className={`${standardInputClass} h-28`} value={formData.tools} onChange={handleChange} />
                   <select name="timeline" className={standardInputClass} value={formData.timeline} onChange={handleChange}>
                     <option value="" disabled>Ideal timeline...</option>

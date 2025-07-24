@@ -112,9 +112,9 @@ export default function AutomationForm(): ReactElement {
     <section className="px-4 py-8">
       <div className="mx-auto max-w-3xl rounded-xl border border-white/10 bg-bg-light text-white shadow-2xl shadow-black/20">
         <div className="p-6 sm:p-8">
-          <div className="mb-6 text-center">
-            <h3 className="mb-4 text-xl font-semibold tracking-tight">{steps[step]}</h3>
-            <div className="h-1.5 w-full rounded-full bg-white/10">
+          <div className="mb-6 flex items-center justify-between">
+            <h3 className="text-xl font-semibold tracking-tight">{steps[step]}</h3>
+            <div className="h-1.5 w-32 rounded-full bg-white/10">
               <div className="h-1.5 rounded-full bg-white transition-all duration-500 ease-in-out" style={{ width: `${progressPercentage}%` }} />
             </div>
           </div>

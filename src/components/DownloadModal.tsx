@@ -48,7 +48,7 @@ export default function DownloadModal({ isOpen, onClose, onDownload, workflowTit
       onClose();
       setEmail('');
       setPhone('');
-    } catch (err) {
+    } catch {
       setError('Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
